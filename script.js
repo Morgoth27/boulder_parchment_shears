@@ -9,16 +9,20 @@ var choiceOptions = ["R", "P", "S"] //rock, paper, scissor. array for the choice
 
 var gate = true;
 while (gate) {
-    // userinput
-    userChoice = prompt("R, P, S").toUpperCase();
-    console.log(typeof userChoice);
-    console.log(userChoice);
+    var gate2 = true;
+    while (gate2) {
+        // userinput while loop used to make sure input is valid
+        userChoice = prompt("R, P, S").toUpperCase();
+        if (choiceOptions.includes(userChoice)) {
+            gate2 = false;
+        } else {
+            alert("That is not a valid option. Try again");
+        }
+    }
 
     // computer randomize choice
     compChoice = choiceOptions[Math.floor(Math.random() * choiceOptions.length)];
-    alert(compChoice);
-    console.log(typeof compChoice);
-    console.log(compChoice);
+    alert("Computer picks " + compChoice);
 
     // display computer choice // find winner // add to score
     if (compChoice === userChoice) {
